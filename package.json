@@ -1,0 +1,26 @@
+{
+  "name": "rollup-copy",
+  "version": "1.0.0",
+  "description": "Rollup plugin to copy node modules to target dir",
+  "keywords": [
+    "rollup",
+    "rollup-plugin",
+    "rollup-copy"
+  ],
+  "homepage": "https://github.com/VoidVolker/rollup-copy#readme",
+  "bugs": {
+    "url": "https://github.com/VoidVolker/rollup-copy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VoidVolker/rollup-copy.git"
+  },
+  "license": "MIT",
+  "author": "VoidVolker",
+  "type": "module",
+  "main": "copy.js",
+  "scripts": {
+    "make": "coffee -c -b -M ./",
+    "watch": "coffee -c -b -M -w ./"
+  }
+}
