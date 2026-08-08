@@ -1,6 +1,6 @@
 # Rollup copy
 
-Rollup plugin to copy node modules or any files to target directory. Plugin looking for files in source dir and just copy them to target dir. Also plugin checks the file size and date and if it same - doesn't copy files. Support standard JS regular expressions to select files by they names.
+Rollup plugin to copy node modules or any files to target directory. Plugin looks for files in the source directory and just copies them to the target directory. Also, the plugin checks the file size and date and, if it is the same, doesn't copy files. Support standard JS regular expressions to select files by their name.
 
 Example configuration:
 
@@ -18,9 +18,9 @@ export default {
                 // Copy two files from module w2ui
                 ['w2ui', 'w2ui-2.0.es6.min.js', 'w2ui-2.0.css'],
                 // Copy fonts by regexp
-                ['@fortawesome/fontawesome-free/webfonts', /fa-\w+-\d+\.woff2/],
+                ['@fortawesome/fontawesome-free/webfonts', /fa-\w+-\d+\.woff2/], // -> fa-brands-400.woff2, fa-regular-400.woff2, fa-solid-900.woff2
                 // Copy styles by regexp
-                ['@fortawesome/fontawesome-free/css', /^(all|brands|fontawesome|regular|solid)\.min\.css$/]
+                ['@fortawesome/fontawesome-free/css', /^(all|brands|fontawesome|regular|solid)\.min\.css$/] // -> all.min.css, brands.min.css, fontawesome.min.css, regular.min.css, solid.min.css
             ],
             // Optional
             source: 'node_modules',
@@ -36,9 +36,9 @@ export default {
 
 | Options | Type | Default | Description |
 |---|---|---|---|
-| `modules` | `Array` | `[]` | Array of `string` or `Array<string\|RegExp>`: path to one source file or path to dir and list of files |
-| `source` | `string` | `'node_modules'` | Files source directory to looking |
-| `target` | `string` | `'dist/vendor'` | Files target directory to copy |
+| `modules` | `Array` | `[]` | Array of `string` or `Array<string\|RegExp>`: path to one source file or path to directory and list of files |
+| `source` | `string` | `'node_modules'` | Files source directory |
+| `target` | `string` | `'dist/vendor'` | Files target directory |
 | `silent` | `boolean` | `false` | Silent mode - do not type anything to console |
 | `debug` | `boolean` | `false` | Debug mode - usefull for debugging |
 
