@@ -32,6 +32,11 @@ export default {
 }
 ```
 
+- Copy only files, not a directory
+- Regular expressions available only for file names, not directories
+
+These limitations done for speed.
+
 ## Configuration options
 
 | Options | Type | Default | Description |
