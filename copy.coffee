@@ -1,6 +1,5 @@
 import { statSync, existsSync, mkdirSync, copyFileSync, rmSync, utimesSync, readdirSync } from 'node:fs'
-import { resolve, parse, join, sep } from 'node:path'
-import { execSync } from 'child_process'
+import { resolve, parse, join } from 'node:path'
 
 class RollupCopy
 
@@ -47,7 +46,7 @@ class RollupCopy
         debug = @opt.debug
         source = @opt.source or @constructor.defaultSource
         target = @opt.target or @constructor.defaultTarget
-        sourceDir = resolve './', 'node_modules'
+        sourceDir = resolve './', source
         targetDir = resolve './', target
 
         if debug
@@ -77,7 +76,7 @@ class RollupCopy
 
         # Process modules
         for module in modules
-            # Process soruce and target paths
+            # Process source and target paths
             modulePath = join sourceDir, module
             parsedModule = parse module
             moduleFile = parsedModule.base
