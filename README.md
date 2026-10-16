@@ -2,6 +2,19 @@
 
 Rollup plugin to copy node modules or any files to target directory. Plugin looks for files in the source directory and just copies them to the target directory. Also, the plugin checks the file size and date and, if it is the same, doesn't copy files. Support standard JS regular expressions to select files by their name.
 
+## Features
+
+- Copy files by name, path and regexp
+- Test source and target files dates and size befory copy
+- Overwrite old file by new from source
+- Doesn't overwrite new file from older source (you can copy file once and edit it - aware module update in that case)
+- Copy only files, not a directory - in that case use OS native solutions
+- Regular expressions available only for file names, not directories
+
+These limitations done for speed.
+
+## Example
+
 Example configuration:
 
 ```js
@@ -32,10 +45,30 @@ export default {
 }
 ```
 
-- Copy only files, not a directory
-- Regular expressions available only for file names, not directories
+By default plugin makes same directory structure as source file. If you want change path - then just put path to file in a `source` option and use array for multiple configurations:
 
-These limitations done for speed.
+```js
+import copy from '@voidvolker/rollup-copy'
+
+export default {
+    plugins: [
+        copy([
+            {
+                modules: [
+                    ['./', /^(all|brands|fontawesome|regular|solid)\.min\.css$/] // Small trick - use 'current dir' as dir: it will be joined to `source` field
+                ],
+                source: 'node_modules/@fortawesome/fontawesome-free/css',
+                target: 'dist/css'
+            },
+            {
+                modules: ['svg-pan-zoom.min.js'],
+                source: 'node_modules/svg-pan-zoom/dist',
+                target: 'dist/js'
+            }
+        ])
+    ]
+}
+```
 
 ## Configuration options
 

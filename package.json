@@ -1,6 +1,6 @@
 {
     "name": "@voidvolker/rollup-copy",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Rollup plugin to copy node modules to target dir",
     "keywords": [
         "rollup",
